@@ -1,2 +1,2 @@
 # Cookies-App
-This is a minimal cookies shoppng app i created using dart and flutter
+This is a minimal cookies shoppng app that i created using dart and flutter
