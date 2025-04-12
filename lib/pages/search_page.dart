@@ -26,7 +26,7 @@ class SearchPage extends StatelessWidget {
               left: 15.w,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pop(context);
+                  // Navigator.pop(context);
                 },
                 child: Container(
                   width: 100.w,

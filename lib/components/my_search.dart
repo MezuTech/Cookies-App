@@ -39,7 +39,7 @@ class MySearch extends SearchDelegate {
 
         // Display product details (name, image, price, etc.) here
         return ListTile(
-          title: Text(product.productname + " " + product.productname2),
+          title: Text("${product.productname} ${product.productname2}"),
           // ... other product details
         );
       },
@@ -59,7 +59,7 @@ class MySearch extends SearchDelegate {
 
         // Display product details (name, image, price, etc.) here
         return ListTile(
-          title: Text(product.productname + " " + product.productname2),
+          title: Text("${product.productname} ${product.productname2}"),
           // ... other product details
         );
       },

@@ -107,7 +107,7 @@ class ProductCard extends StatelessWidget {
                 color: AppColor.black,
               ),
               child: const Icon(
-                Icons.arrow_forward_rounded,
+                Icons.add,
                 size: 20,
               ),
             ),
@@ -133,7 +133,7 @@ class ProductCard extends StatelessWidget {
             ),
             child: Image.asset(
               product.productnameimage,
-              scale: 5.1.h,
+              scale: 7.1.h,
             ),
           ),
         )

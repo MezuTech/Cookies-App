@@ -2,8 +2,8 @@ import 'package:choco_app/components/cart_tile.dart';
 import 'package:choco_app/components/checkout_button.dart';
 import 'package:choco_app/components/my_popupmenu_button.dart';
 import 'package:choco_app/modules/cart_module.dart';
-import 'package:choco_app/pages/home.dart';
 import 'package:choco_app/themes/app_text.dart';
+import 'package:choco_app/themes/app_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,7 +16,47 @@ class CartPage extends StatelessWidget {
   ) {
     // access cart and total price provider
     final mycart = context.watch<CartModule>().cart;
+
     final itemcount = context.read<CartModule>();
+    //dialog for order confirmation
+    void showMyDialog() {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text(
+              'Order Confirmation',
+            ),
+            content: const Text('Proceed to checkout?'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text(
+                  'Cancel',
+                  style: AppText.regular(
+                    color: AppColor.secondary,
+                  ),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  Navigator.pushNamed(context, "/payment");
+                },
+                child: Text(
+                  'Proceed',
+                  style: AppText.regular(
+                    color: AppColor.secondary,
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
+      );
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -97,7 +137,14 @@ class CartPage extends StatelessWidget {
                     ),
                   ],
                 ),
-      bottomNavigationBar: mycart.isEmpty ? null : const CheckoutButton(),
+      bottomNavigationBar: mycart.isEmpty
+          ? null
+          : CheckoutButton(
+              text: "Checkout: \$${itemcount.totalPrice.toStringAsFixed(2)}",
+              onTap: () {
+                showMyDialog();
+              },
+            ),
     );
   }
 }

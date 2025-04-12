@@ -41,7 +41,7 @@ class MyAppbar extends StatelessWidget implements PreferredSize {
                 ),
               ],
             ),
-            Gap(50.h),
+            Gap(45.h),
             Text(
               "Hi Mezu!",
               style: AppText.semiBoldHeader(

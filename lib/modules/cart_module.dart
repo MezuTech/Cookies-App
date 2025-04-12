@@ -1,5 +1,9 @@
 import 'package:choco_app/modules/product_module.dart';
+import 'package:choco_app/pages/account_page.dart';
+import 'package:choco_app/pages/search_page.dart';
+import 'package:choco_app/pages/shop_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:uuid/uuid.dart';
 
 class CartModule extends ChangeNotifier {
@@ -95,5 +99,42 @@ class CartModule extends ChangeNotifier {
             .toLowerCase()
             .contains(query.toLowerCase()))
         .toList();
+  }
+
+  // --- Add Credit Card State Variables ---
+  String _cardNumber = "";
+  String _expiryDate = "";
+  String _cardHolderName = "";
+  String _cvvCode = "";
+  bool _isCvvFocused = false;
+
+  // --- Public Getters for Credit Card State ---
+  String get cardNumber => _cardNumber;
+  String get expiryDate => _expiryDate;
+  String get cardHolderName => _cardHolderName;
+  String get cvvCode => _cvvCode;
+  bool get isCvvFocused => _isCvvFocused;
+
+  // --- Method to Update Credit Card Details ---
+  void updateCreditCardDetails(CreditCardModel? model) {
+    if (model != null) {
+      _cardNumber = model.cardNumber;
+      _expiryDate = model.expiryDate;
+      _cardHolderName = model.cardHolderName;
+      _cvvCode = model.cvvCode;
+      _isCvvFocused = model.isCvvFocused;
+
+      // Notify listeners that the credit card details have changed
+      notifyListeners();
+    }
+  }
+
+  // controlls index for list of pages
+  int selectedindex = 0;
+
+  // method for bottombar tap to navigate
+  onItemTapped(int index) {
+    selectedindex = index;
+    notifyListeners();
   }
 }

@@ -3,6 +3,7 @@ import 'package:choco_app/pages/cart_page.dart';
 import 'package:choco_app/pages/home.dart';
 import 'package:choco_app/pages/intro_page.dart';
 import 'package:choco_app/pages/account_page.dart';
+import 'package:choco_app/pages/payment_page.dart';
 import 'package:choco_app/pages/search_page.dart';
 import 'package:choco_app/pages/shop_page.dart';
 import 'package:choco_app/themes/app_themes.dart';
@@ -37,12 +38,13 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           "/": (context) => const IntroPage(),
-          "/home": (context) => const HomePage(),
+          "/home": (context) => HomePage(),
           "/cart": (context) => const CartPage(),
           "/account": (context) => const AccountPage(),
           "/search": (context) => const SearchPage(),
           "/shop": (context) => const ShopPage(),
           "/premibottombarum": (context) => const BottomAppBar(),
+          "/payment": (context) => const PaymentPage(),
         },
         initialRoute: "/",
       ),

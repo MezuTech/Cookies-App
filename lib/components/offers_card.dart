@@ -123,7 +123,7 @@ class OffersCard extends StatelessWidget {
                 color: AppColor.black,
               ),
               child: Icon(
-                Icons.arrow_forward_rounded,
+                Icons.add,
                 size: 40.h,
               ),
             ),

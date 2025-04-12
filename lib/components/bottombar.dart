@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:choco_app/themes/app_text.dart';
 import 'package:choco_app/themes/app_themes.dart';
 import 'package:flutter/material.dart';

@@ -16,3 +16,9 @@ subprojects {
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
+
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile).configureEach { task ->
+        task.options.compilerArgs << "-Xlint:-options"
+    }
+}
